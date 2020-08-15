@@ -2,4 +2,4 @@
 
 [Live Preview](https://apps.damirpristav.com/react-modal/)
 
-<!-- [Blog Post](https://codingfromscratch.dev/) -->
+[Blog Post](https://codingfromscratch.dev/reactjs-modal-component/)
