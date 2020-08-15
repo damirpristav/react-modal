@@ -27,7 +27,9 @@ const Modal = ({ title, children, onClose, duration = 300, showCloseBtn }) => {
     }
   }, [duration]);
 
-  const modalCloseHandler = () => {
+  const modalCloseHandler = (e) => {
+    e.preventDefault();
+    
     modal.current.classList.add('disable-click');
     modalBg.current.style.opacity = 0;
     modalContent.current.style.opacity = 0;
@@ -41,17 +43,17 @@ const Modal = ({ title, children, onClose, duration = 300, showCloseBtn }) => {
 
   return(
     <div className="modal" ref={modal}>
-      <div className="modal__bg" onClick={modalCloseHandler} ref={modalBg}></div>
+      <div className="modal__bg" onClick={(e) => modalCloseHandler(e)} ref={modalBg}></div>
       <div className="modal__inner" ref={modalContent}>
         <div className="modal__head">
           <h2>{title}</h2>
-          {showCloseBtn && <button className="btn" onClick={modalCloseHandler}>&times;</button>}
+          {showCloseBtn && <button className="btn" onClick={(e) => modalCloseHandler(e)}>&times;</button>}
         </div>
         <div className="modal__body">
           {children}
         </div>
         <div className="modal__foot">
-          <a href="/#" onClick={modalCloseHandler}>Close</a>
+          <a href="/#" onClick={(e) => modalCloseHandler(e)}>Close</a>
         </div>
       </div>
     </div>
